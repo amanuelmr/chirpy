@@ -56,9 +56,10 @@ func main() {
 	mux.HandleFunc("POST /api/chirps", apiCfg.handleCreateChirp)
 	mux.HandleFunc("GET /api/chirps", apiCfg.handleGetChirps)
 	mux.HandleFunc("GET /api/chirps/{chirpID}", apiCfg.handleGetChirpsByID)
+	mux.HandleFunc("DELETE /api/chirps/{chirpID}", apiCfg.handleDeleteChirp)
 	mux.HandleFunc("POST /api/refresh", apiCfg.handlerRefreshToken)
 	mux.HandleFunc("POST /api/revoke", apiCfg.handlerRevokeToken)
-
+	mux.HandleFunc("PUT /api/users", apiCfg.handlerUpdateUser)
 	if err := server.ListenAndServe(); err != nil {
 		fmt.Println("Error starting server:", err)
 	}

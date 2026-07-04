@@ -14,3 +14,12 @@ ORDER BY created_at;
 SELECT * FROM chirps
 WHERE id = $1;
 
+
+-- name: DeleteChirpByUserID :exec
+DELETE FROM chirps
+WHERE user_id = $1;
+
+
+-- name: DeleteChirp :exec
+DELETE FROM chirps
+WHERE id = $1 AND user_id = $2;
